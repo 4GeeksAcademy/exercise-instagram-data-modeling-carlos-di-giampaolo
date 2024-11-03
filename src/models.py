@@ -20,9 +20,10 @@ class Post(Base):
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
     image_url = Column(String(250), nullable=False)
-    caption = Column(Text)
+    caption = Column(Text) 
     user_id = Column(Integer, ForeignKey('users.id'))
-    
+    likes = Column(Integer,nullable = False)
+
     user = relationship('User', back_populates='posts')
     comments = relationship('Comment', back_populates='post')
 
